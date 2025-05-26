@@ -1,0 +1,639 @@
+/* css/style.css */
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and general styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Cor de fundo padrão para tema claro */
+    color: #333;             /* Cor de texto padrão para tema claro */
+    padding-bottom: 70px; /* Adiciona espaço para o rodapé fixo não sobrepor o conteúdo, aumentado um pouco */
+    transition: background-color 0.3s, color 0.3s; /* Suaviza a transição de tema */
+}
+
+/* Header section */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Navigation menu */
+nav {
+    background-color: #34495e;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content section */
+.content {
+    padding: 20px;
+    text-align: center; 
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333; 
+}
+
+.content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333; 
+}
+
+.content p { 
+    font-size: 1.2em; 
+    line-height: 1.6;
+    margin-bottom: 15px; 
+    color: #333; 
+}
+
+.content ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+    padding-left: 0; 
+}
+
+.content li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333; 
+}
+
+.content .btn, .theme-toggle button { 
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer; 
+    margin: 5px; 
+    transition: background-color 0.2s ease-in-out;
+}
+
+.content .btn:hover, .theme-toggle button:hover {
+    background-color: #34495e;
+}
+
+/* Theme Toggle Buttons Container */
+.theme-toggle {
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 10px; /* Espaçamento abaixo dos botões de tema */
+}
+
+/* Footer section */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 100; /* Para garantir que fique acima de outros elementos se necessário */
+}
+
+/* --- ESTILOS PARA OS CARDS DE FILMES (filmes.html) --- */
+.lista-filmes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filme-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.filme-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.filme-card .filme-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.filme-card h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333; /* Cor específica para o h3 do card no tema claro */
+}
+
+.filme-card .genero {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.filme-card .descricao {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    color: #555;
+}
+
+.filme-card .avaliacao {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.filme-card .avaliacao .estrelas {
+    color: #f5c518;
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.filme-card .card-actions {
+    margin-top: auto; /* Empurra os botões para o final do card info */
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem linha se não couberem */
+}
+.filme-card .card-actions .btn { /* Ajuste para botões dentro do card serem um pouco menores se necessário */
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+
+/* --- ESTILOS PARA DETALHES DO FILME (detalhes_filme.html) --- */
+.filme-detalhe-item {
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.filme-detalhe-cabecalho {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+.filme-detalhe-cabecalho h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #2c3e50; 
+}
+.avaliacao-detalhe {
+    font-size: 1.1em;
+    color: #f5c518; 
+}
+.avaliacao-detalhe span { 
+    color: #555; 
+    font-size: 0.9em;
+    vertical-align: middle;
+}
+.filme-detalhe-corpo {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    gap: 20px;
+}
+.poster-detalhe {
+    width: 250px; 
+    max-width: 100%; /* Garante responsividade */
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    align-self: flex-start; 
+}
+.info-texto-detalhe {
+    flex: 1; 
+    min-width: 280px; /* Largura mínima para o texto antes de quebrar */
+}
+.info-texto-detalhe h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #34495e; 
+}
+.info-texto-detalhe p {
+    font-size: 1em; 
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #444;
+}
+.detail-actions {
+    margin-top: 15px;
+}
+
+.separador-secao {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
+.secao-avaliacoes h2 {
+    margin-bottom: 20px;
+    color: #34495e;
+    text-align: center; /* Centraliza o título da seção de avaliações */
+}
+.avaliacao-item {
+    background-color: #f9f9f9; 
+    border: 1px solid #eaeaea;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: left;
+}
+.avaliacao-item.avaliacao-usuario-atual { 
+    background-color: #e6ffed; 
+    border-left: 5px solid #28a745;
+}
+.avaliacao-item.avaliacao-usuario-atual small {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+    color: #555;
+}
+.avaliacao-item h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #333;
+}
+.avaliacao-item .nota-avaliacao {
+    color: #f5c518; 
+}
+.avaliacao-item .nota-avaliacao span { 
+    color: #555;
+    font-size: 0.9em;
+}
+.avaliacao-item p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 0;
+}
+#form-nova-avaliacao {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: left;
+}
+.campo-form-avaliacao {
+    margin-bottom: 15px;
+}
+.campo-form-avaliacao label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+.estrelas-interativas {
+    font-size: 2em; 
+    cursor: pointer;
+    color: #ccc; 
+}
+.estrelas-interativas .estrela {
+    margin-right: 2px;
+    transition: color 0.1s ease-in-out;
+}
+.estrelas-interativas .estrela:hover {
+    color: #f5c518; /* Amarelo no hover */
+}
+#form-nova-avaliacao input[type="text"],
+#form-nova-avaliacao textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+#form-nova-avaliacao textarea {
+    min-height: 80px; 
+    resize: vertical; 
+}
+.status-mensagem {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center; /* Centraliza texto da mensagem de status */
+}
+.status-mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.status-mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* --- ESTILOS PARA FORMULÁRIO DE NOVO FILME (form_novo_filme.html) --- */
+.form-styled { /* Usado também em form_novo_filme.html */
+    background-color: #fff; 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 700px; 
+    margin: 20px auto; 
+    text-align: left;
+}
+.form-styled .campo-form {
+    margin-bottom: 20px;
+}
+.form-styled label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+.form-styled input[type="text"],
+.form-styled input[type="number"],
+.form-styled textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+.form-styled input[type="text"]:focus,
+.form-styled input[type="number"]:focus,
+.form-styled textarea:focus {
+    border-color: #2c3e50; 
+    outline: none; 
+}
+.form-styled textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* --- ESTILOS PARA LISTA DE TODAS AS ANÁLISES (lista_analises.html) --- */
+.todas-analises-listagem {
+    max-width: 900px; 
+    margin: 20px auto; 
+    padding: 0 15px; 
+}
+.filme-analises-bloco {
+    margin-bottom: 30px; 
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc; 
+}
+.filme-analises-bloco:last-child {
+    border-bottom: none; 
+    margin-bottom: 0;
+}
+.filme-analises-bloco h3 { /* Estilo para o título do filme na lista de análises */
+    font-size: 1.8em;
+    color: #2c3e50; 
+    margin-bottom: 15px;
+}
+.filme-analises-bloco h3 a {
+    color: inherit; 
+    text-decoration: none;
+}
+.filme-analises-bloco h3 a:hover {
+    text-decoration: underline;
+}
+.avaliacao-actions { /* Container para os botões de editar/excluir análise */
+    margin-top: 10px;
+    text-align: right; 
+}
+.btn-acao-analise {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    margin-left: 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white; 
+}
+.btn-editar-analise {
+    background-color: #5bc0de; 
+    border-color: #46b8da;
+}
+.btn-editar-analise:hover {
+    background-color: #31b0d5;
+}
+.btn-deletar-analise {
+    background-color: #d9534f; 
+    border-color: #d43f3a;
+}
+.btn-deletar-analise:hover {
+    background-color: #c9302c;
+}
+
+
+/* --- REGRAS DE TEMA CLARO (Garantindo especificidade e defaults) --- */
+.tema-claro {
+    background-color: #f4f4f9;
+    color: #333;
+}
+.tema-claro header,
+.tema-claro nav,
+.tema-claro footer {
+    background-color: #2c3e50;
+    color: white;
+}
+.tema-claro nav a {
+    color: white;
+}
+.tema-claro nav a:hover {
+    color: #e0e0e0; 
+}
+.tema-claro .content h2,
+.tema-claro .content h3,
+.tema-claro .content p, /* Estilo geral para p dentro de .content */
+.tema-claro .content li {
+    color: #333;
+}
+.tema-claro .content .btn { /* Botões principais no tema claro */
+    background-color: #2c3e50;
+    color: white;
+}
+.tema-claro .content .btn:hover {
+    background-color: #34495e;
+}
+.tema-claro .theme-toggle button { 
+    background-color: #5e87a0;
+    color: white;
+}
+.tema-claro .theme-toggle button:hover {
+    background-color: #4a6b80;
+}
+/* Cards de filme no tema claro */
+.tema-claro .filme-card {
+    background-color: #fff;
+    border-color: #ddd;
+}
+.tema-claro .filme-card h3 { color: #333; }
+.tema-claro .filme-card .genero { color: #666; }
+.tema-claro .filme-card .descricao { color: #555; }
+.tema-claro .filme-card .avaliacao { color: #444; }
+/* Detalhes do filme no tema claro */
+.tema-claro .filme-detalhe-item { background-color: #fff; border-color: #eee; }
+.tema-claro .filme-detalhe-cabecalho h2 { color: #2c3e50; }
+.tema-claro .avaliacao-detalhe span { color: #555; }
+.tema-claro .info-texto-detalhe h3 { color: #34495e; }
+.tema-claro .info-texto-detalhe p { color: #444; }
+.tema-claro .secao-avaliacoes h2 { color: #34495e; }
+.tema-claro .avaliacao-item { background-color: #f9f9f9; border-color: #eaeaea; }
+.tema-claro .avaliacao-item h4 { color: #333; }
+.tema-claro .avaliacao-item p { color: #555; }
+.tema-claro #form-nova-avaliacao { background-color: #f9f9f9; border-color: #eee; }
+.tema-claro .campo-form-avaliacao label { color: #444; }
+/* Form-styled no tema claro (já é o default, mas para garantir) */
+.tema-claro .form-styled { background-color: #fff; }
+.tema-claro .form-styled label { color: #444; }
+.tema-claro .form-styled input[type="text"],
+.tema-claro .form-styled input[type="number"],
+.tema-claro .form-styled textarea {
+    border-color: #ccc; color: #333; background-color: #fff;
+}
+/* Lista de todas as análises no tema claro */
+.tema-claro .filme-analises-bloco h3 { color: #2c3e50; }
+.tema-claro .btn-editar-analise { background-color: #5bc0de; border-color: #46b8da; color: white;}
+.tema-claro .btn-deletar-analise { background-color: #d9534f; border-color: #d43f3a; color: white;}
+
+
+/* --- REGRAS DE TEMA ESCURO --- */
+.tema-escuro {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+.tema-escuro header,
+.tema-escuro nav,
+.tema-escuro footer {
+    background-color: #1f1f1f; 
+    color: #f4f4f4;
+}
+.tema-escuro nav a {
+    color: #81c784; 
+}
+.tema-escuro nav a:hover {
+    text-decoration: underline;
+    color: #a5d6a7;
+}
+.tema-escuro .content h2,
+.tema-escuro .content h3,
+.tema-escuro .content p, /* Estilo geral para p dentro de .content no tema escuro */
+.tema-escuro .content li {
+    color: #f4f4f4;
+}
+.tema-escuro .content .btn { /* Botões principais no tema escuro */
+    background-color: #333; 
+    color: #f4f4f4;
+}
+.tema-escuro .content .btn:hover {
+    background-color: #444;
+}
+.tema-escuro .theme-toggle button { 
+    background-color: #555;
+    color: #f4f4f4;
+}
+.tema-escuro .theme-toggle button:hover {
+    background-color: #666;
+}
+/* Cards de filme no tema escuro */
+.tema-escuro .filme-card {
+    background-color: #2a2a2a; 
+    border-color: #444;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.tema-escuro .filme-card h3 { color: #e0e0e0; }
+.tema-escuro .filme-card .genero { color: #bbb; }
+.tema-escuro .filme-card .descricao { color: #ccc; }
+.tema-escuro .filme-card .avaliacao { color: #ddd; }
+/* Detalhes do filme no tema escuro */
+.tema-escuro .filme-detalhe-item { background-color: #2a2a2a; box-shadow: 0 2px 8px rgba(0,0,0,0.4); border-color: #444; }
+.tema-escuro .filme-detalhe-cabecalho { border-bottom-color: #444; }
+.tema-escuro .filme-detalhe-cabecalho h2 { color: #81c784; }
+.tema-escuro .avaliacao-detalhe span { color: #ccc; }
+.tema-escuro .info-texto-detalhe h3 { color: #b0bec5; }
+.tema-escuro .info-texto-detalhe p { color: #ddd; }
+.tema-escuro .separador-secao { background-color: #444; }
+.tema-escuro .secao-avaliacoes h2 { color: #b0bec5; }
+.tema-escuro .avaliacao-item { background-color: #333; border-color: #555; }
+.tema-escuro .avaliacao-item.avaliacao-usuario-atual { background-color: #2c3e50; border-left-color: #81c784; }
+.tema-escuro .avaliacao-item.avaliacao-usuario-atual small { color: #bbb; }
+.tema-escuro .avaliacao-item h4 { color: #e0e0e0; }
+.tema-escuro .avaliacao-item .nota-avaliacao span { color: #ccc; }
+.tema-escuro .avaliacao-item p { color: #ccc; }
+/* Formulário de nova avaliação no tema escuro */
+.tema-escuro #form-nova-avaliacao { background-color: #333; border-color: #555; }
+.tema-escuro .campo-form-avaliacao label { color: #ddd; }
+.tema-escuro .estrelas-interativas { color: #555; }
+.tema-escuro .estrelas-interativas .estrela:hover { color: #f5c518; }
+.tema-escuro #form-nova-avaliacao input[type="text"],
+.tema-escuro #form-nova-avaliacao textarea {
+    background-color: #444; border-color: #666; color: #f0f0f0;
+}
+.tema-escuro #form-nova-avaliacao input[type="text"]::placeholder,
+.tema-escuro #form-nova-avaliacao textarea::placeholder { color: #888; }
+.tema-escuro .status-mensagem.sucesso { background-color: #1e4620; color: #c6f6d5; border-color: #2f6031; }
+.tema-escuro .status-mensagem.erro { background-color: #52161d; color: #fed7d7; border-color: #8d2833; }
+/* Form-styled no tema escuro */
+.tema-escuro .form-styled { background-color: #2a2a2a; }
+.tema-escuro .form-styled label { color: #ddd; }
+.tema-escuro .form-styled input[type="text"],
+.tema-escuro .form-styled input[type="number"],
+.tema-escuro .form-styled textarea {
+    background-color: #444; border-color: #666; color: #f0f0f0;
+}
+.tema-escuro .form-styled input[type="text"]::placeholder,
+.tema-escuro .form-styled input[type="number"]::placeholder,
+.tema-escuro .form-styled textarea::placeholder { color: #888; }
+.tema-escuro .form-styled input[type="text"]:focus,
+.tema-escuro .form-styled input[type="number"]:focus,
+.tema-escuro .form-styled textarea:focus { border-color: #81c784; }
+/* Lista de todas as análises no tema escuro */
+.tema-escuro .filme-analises-bloco { border-bottom-color: #444; }
+.tema-escuro .filme-analises-bloco h3 { color: #81c784; }
+.tema-escuro .btn-editar-analise { background-color: #0275d8; border-color: #025aa5; color: white; }
+.tema-escuro .btn-editar-analise:hover { background-color: #025aa5; }
+.tema-escuro .btn-deletar-analise { background-color: #c82333; border-color: #bd2130; color: white; }
+.tema-escuro .btn-deletar-analise:hover { background-color: #bd2130; }

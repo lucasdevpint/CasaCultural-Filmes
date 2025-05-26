@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análises da Comunidade - Casa Cultural Av. Filmes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tema-claro">
+
+    <header>
+        <h1>Casa Cultural Av. Filmes</h1>
+        <p>Veja todas as análises e opiniões da nossa comunidade cinéfila!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="filmes.html">Ver Filmes</a>
+        <a href="form_novo_filme.html">Cadastrar Novo Filme</a>
+        <a href="lista_analises.html">Ver Análises da Comunidade</a>
+    </nav>
+
+    <div class="theme-toggle">
+        <button onclick="alterarTema('claro')">Tema Claro</button>
+        <button onclick="alterarTema('escuro')">Tema Escuro</button>
+    </div>
+
+    <div class="content">
+        <h2>Todas as Análises da Nossa Comunidade</h2>
+        
+        <div id="container-todas-analises" class="todas-analises-listagem">
+            <p>Carregando análises...</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Casa Cultural Av. Filmes - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script> 
+</body>
+</html>
