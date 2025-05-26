@@ -1,5 +1,7 @@
+
 package br.com.casacultural.casacultural_filmes.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference; // <<< ADICIONE ESTE IMPORT
 import jakarta.persistence.*;
 import java.sql.Timestamp;
 
@@ -12,17 +14,16 @@ public class Analise {
     @Column(name = "id_analise")
     private int idAnalise;
 
-    // Relacionamento: Muitas Análises pertencem a Um Filme
-    // fetch=FetchType.LAZY: O filme associado só será carregado do BD quando acessado.
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_filme_fk", nullable = false) // Mapeia para a coluna de chave estrangeira no BD
-    private Filme filme; // Referência ao objeto Filme
+    @JoinColumn(name = "id_filme_fk", nullable = false)
+    @JsonBackReference // <<< ANOTAÇÃO ADICIONADA AQUI
+    private Filme filme;
 
     @Column(name = "nome_usuario", length = 100)
     private String nomeUsuario;
 
     @Column(nullable = false)
-    private int nota; // (Ex: 1 a 5)
+    private int nota;
 
     @Lob
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -84,7 +85,6 @@ public class Analise {
         this.dataAnalise = dataAnalise;
     }
     
-    // (Opcional) toString
     @Override
     public String toString() {
         return "Analise{" +

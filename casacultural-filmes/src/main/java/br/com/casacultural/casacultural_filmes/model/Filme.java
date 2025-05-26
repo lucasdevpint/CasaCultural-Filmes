@@ -1,20 +1,21 @@
 package br.com.casacultural.casacultural_filmes.model;
 
-import jakarta.persistence.*; // Para anotações JPA (Java Persistence API)
+import com.fasterxml.jackson.annotation.JsonManagedReference; // <<< ADICIONE ESTE IMPORT
+import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity // Marca esta classe como uma entidade JPA (será mapeada para uma tabela no BD)
-@Table(name = "filmes") // Especifica o nome da tabela no banco de dados
+@Entity
+@Table(name = "filmes")
 public class Filme {
 
-    @Id // Marca este campo como a chave primária da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Configura o ID para ser auto-incrementado pelo banco
-    @Column(name = "id_filme") // Mapeia para a coluna 'id_filme'
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_filme")
     private int idFilme;
 
-    @Column(nullable = false, length = 255) // Não pode ser nulo, tamanho máximo de 255 caracteres
+    @Column(nullable = false, length = 255)
     private String titulo;
 
     @Column(length = 255)
@@ -23,13 +24,13 @@ public class Filme {
     @Column(length = 150)
     private String diretor;
 
-    @Column(name = "ano_lancamento") // Mapeia para a coluna 'ano_lancamento'
-    private Integer anoLancamento; // Usar Integer permite valor nulo se o ano não for informado
+    @Column(name = "ano_lancamento")
+    private Integer anoLancamento;
 
     @Column(length = 50)
     private String duracao;
 
-    @Lob // Indica que pode ser um texto longo (TEXT no MySQL)
+    @Lob
     @Column(name = "descricao_curta", columnDefinition = "TEXT")
     private String descricaoCurta;
 
@@ -44,24 +45,17 @@ public class Filme {
     private String urlImagemPoster;
 
     @Column(name = "data_cadastro", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    // insertable=false, updatable=false: O Java não vai tentar inserir ou atualizar este campo
-    // columnDefinition: Pede ao banco para usar o valor padrão CURRENT_TIMESTAMP
     private Timestamp dataCadastro;
 
-    // Relacionamento: Um Filme pode ter muitas Análises
-    // mappedBy="filme": Indica que o lado "dono" do relacionamento está na classe Analise, no campo "filme".
-    // cascade=CascadeType.ALL: Operações (salvar, deletar) em Filme serão cascateadas para suas Análises.
-    // orphanRemoval=true: Se uma Analise for removida da lista 'avaliacoes' de um Filme, ela será deletada do BD.
-    // fetch=FetchType.LAZY: As avaliações só serão carregadas do BD quando explicitamente acessadas (ex: filme.getAvaliacoes()).
     @OneToMany(mappedBy = "filme", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference // <<< ANOTAÇÃO ADICIONADA AQUI
     private List<Analise> avaliacoes = new ArrayList<>();
-
 
     // Construtores
     public Filme() {
     }
 
-    // Getters e Setters (essenciais para JPA e para o seu código)
+    // Getters e Setters
     public int getIdFilme() {
         return idFilme;
     }
@@ -158,13 +152,11 @@ public class Filme {
         this.avaliacoes = avaliacoes;
     }
 
-    // Método utilitário para adicionar uma análise (garante a bidirecionalidade se necessário)
     public void addAnalise(Analise analise) {
         this.avaliacoes.add(analise);
-        analise.setFilme(this); // Mantém o relacionamento bidirecional consistente
+        analise.setFilme(this);
     }
 
-    // (Opcional) toString para facilitar a visualização em logs
     @Override
     public String toString() {
         return "Filme{" +
